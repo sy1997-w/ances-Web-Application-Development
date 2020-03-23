@@ -13,19 +13,34 @@ A step by step series of examples that tell you how to get a development env run
 
 Say what the step will be
 
-Install Composer
+1. Install Composer
 
 ```
 composer i
 ```
+2. To link to database
 
-To migrate:
+```
+copy .env.example .env
+
+```
+3. To edit to database
+
+```
+DB_DATABASE=assignment
+DB_USERNAME=root
+DB_PASSWORD=
+
+```
+4. Create a database name "assignment"
+
+5. To migrate:
 
 ```
 php artisan migrate
 ```
 
-And run
+6. And run
 
 ```
 php artisan serve
