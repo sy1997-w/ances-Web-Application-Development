@@ -24,7 +24,7 @@ composer i
 copy .env.example .env
 
 ```
-3. To edit to database
+3. To edit to database in .env
 
 ```
 DB_DATABASE=assignment
