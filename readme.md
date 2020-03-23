@@ -43,6 +43,7 @@ php artisan migrate
 6. And run
 
 ```
+php artisan key:generate
 php artisan serve
 ```
 
