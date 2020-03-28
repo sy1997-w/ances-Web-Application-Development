@@ -10,6 +10,12 @@ use App\Visit;
 @section('content')
 <!-- Bootstrap Boilerplate... -->
     <div class="panel-body">
+    @if(Session::has('msg'))
+        <div class="alert alert-warning">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{Session::get('msg')}}</strong> Permission not granted.
+        </div>
+    @endif
     <a href="{{ route('visit.create') }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Add an Appointment</a>
     <br></br>
     @if (count($visits) > 0)

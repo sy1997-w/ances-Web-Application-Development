@@ -8,15 +8,25 @@
 <!-- Bootstrap Boilerplate... -->
 
     <div class="panel-body">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <!-- New Patient Form -->
         {!! Form::model($patient, [ 'route' => ['patient.store'], 'class' => 'form-horizontal' ]) !!}
        
         <!-- patient_no -->
         <div class="form-group row">
-            {!! Form::label('patient-patient_no', 'Name', ['class' => 'control-label col-sm-3',]) !!}
-                <div class="col-sm-9">
-                    {!! Form::text('patient_no', null, ['id' => 'patient-patient_no','class' => 'form-control','maxlength' => 10,]) !!}
-                </div>
+            {!! Form::label('patient-patient_no', 'Patient ID', ['class' => 'control-label col-sm-3',]) !!}
+            <div class="col-sm-9">
+                {!! Form::text('patient_no', null, ['id' => 'patient-patient_no','class' => 'form-control','maxlength' => 10,]) !!}
+                <small class="form-text text-muted">Format: PID-XXXXX </small>
+            </div>
         </div>
 
         <!-- Name -->
@@ -24,6 +34,15 @@
                 {!! Form::label('patient-name', 'Name', ['class' => 'control-label col-sm-3',]) !!}
                 <div class="col-sm-9">
                     {!! Form::text('name', null, ['id' => 'patient-name','class' => 'form-control','maxlength' => 100,]) !!}
+                </div>
+        </div>
+
+        <!-- NRIC -->
+        <div class="form-group row">
+            {!! Form::label('patient-nric', 'Nric', ['class' => 'control-label col-sm-3',]) !!}
+                <div class="col-sm-9">
+                    {!! Form::text('nric', null, ['id' => 'patient-nric','class' => 'form-control','maxlength' => 14,]) !!}
+                    <small id="nricformat" class="form-text text-muted">Format: XXXXXX-XX-XXXX </small>
                 </div>
         </div>
 
@@ -40,20 +59,12 @@
             </div>
         </div> 
 
-        <!-- NRIC -->
-        <div class="form-group row">
-            {!! Form::label('patient-nric', 'Nric', ['class' => 'control-label col-sm-3',]) !!}
-                <div class="col-sm-9">
-                    {!! Form::text('nric', null, ['id' => 'patient-nric','class' => 'form-control','maxlength' => 14,]) !!}
-                    <small id="nricformat" class="form-text text-muted">Format: XXXXXX-XX-XXXX </small>
-                </div>
-        </div>
-     
         <!-- Phone -->
         <div class="form-group row">
             {!! Form::label('patient-phone', 'Phone', ['class' => 'control-label col-sm-3',]) !!}
                 <div class="col-sm-9">
                     {!! Form::text('phone', null, ['id' => 'patient-phone','class' => 'form-control','maxlength' => 20,]) !!}
+                    <small class="form-text text-muted">Format: XXX-XXXXXXX </small> 
                 </div>
         </div>
 

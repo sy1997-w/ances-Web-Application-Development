@@ -6,6 +6,12 @@ use App\Common;
     @section('content')
     <!-- Bootstrap Boilerplate... -->
         <div class="panel-body">
+        @if(Session::has('msg'))
+            <div class="alert alert-warning">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>{{Session::get('msg')}}</strong> Permission not granted.
+            </div>
+        @endif
         <a href="{{ route('doctor.create') }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Add a Doctor</a>
         <br></br>
         @if (count($doctors) > 0)

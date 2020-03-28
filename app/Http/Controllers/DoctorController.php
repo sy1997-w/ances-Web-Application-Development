@@ -7,7 +7,11 @@ use App\Doctor;
 
 class DoctorController extends Controller
 {
-    //
+	//
+	public function __construct()
+    {
+		$this->middleware('auth');
+    }
 	
 	public function create()
 	{
@@ -21,6 +25,14 @@ class DoctorController extends Controller
 	public function store(Request $request)
 	{
 		$doctor = new Doctor;
+		$request->validate([
+			'doctor_no' => ['required', 'unique:doctors','regex:/^DID\-\d{5}$/'],
+			'name' => 'required|max:300',
+			'nric' => ['required','regex:/^\d{6}\-\d{2}\-\d{4}$/'],
+			'gender' => 'required',
+			'phone' => ['required','regex:/^\d{2,3}\-\d{6,10}$/'],
+			'education' => 'required',
+		]);
 		$doctor->fill($request->all());
 		$doctor->save();
 	
@@ -48,19 +60,32 @@ class DoctorController extends Controller
 	
 	public function edit($id)
 	{
-		$doctor = Doctor::find($id);
-		if(!$doctor) throw new ModelNotFoundException;
-
-		return view('doctors.edit', [
-		'doctor' => $doctor
-		]);
+		if(\Gate::allows('isSuperAdmin')){
+			$doctor = Doctor::find($id);
+			if(!$doctor) throw new ModelNotFoundException;
+	
+			return view('doctors.edit', [
+			'doctor' => $doctor
+			]);
+		}else{
+			\Session::flash('msg', 'Unable to edit. ');
+			return \Redirect::back();
+		}
 	}
 	
 	public function update(Request $request, $id)
 	{
 		$doctor = Doctor::find($id);
 		if(!$doctor) throw new ModelNotFoundException;
-
+		
+		$request->validate([
+			'doctor_no' => ['required','regex:/^DID\-\d{5}$/'],
+			'name' => 'required|max:300',
+			'nric' => ['required','regex:/^\d{6}\-\d{2}\-\d{4}$/'],
+			'gender' => 'required',
+			'phone' => ['required','regex:/^\d{2,3}\-\d{6,10}$/'],
+			'education' => 'required',
+		]);
 		$doctor->fill($request->all());
 
 		$doctor->save();
@@ -75,13 +100,17 @@ class DoctorController extends Controller
      */	
 	public function destroy($id)
     {
-		$doctor =Doctor::where('id',$id)->first();
-
-		if ($doctor != null) {
-			$doctor->delete();
-			return redirect()->route('doctor.index')->with('success','Doctor deleted successfully');
+		if(\Gate::allows('isSuperAdmin')){
+			$doctor =Doctor::where('id',$id)->first();
+			if ($doctor != null) {
+				$doctor->delete();
+				return redirect()->route('doctor.index')->with('success','Doctor deleted successfully');
+			}
+			return redirect()->route('doctor.index')->with(['message'=> 'Wrong ID!!']);
+		}else{
+			\Session::flash('msg', 'Unable to delete. ');
+			return \Redirect::back();
 		}
-		return redirect()->route('doctor.index')->with(['message'=> 'Wrong ID!!']);
     }
 
 }

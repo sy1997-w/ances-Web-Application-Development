@@ -1,3 +1,7 @@
+<?php 
+  use Illuminate\Support\Facades\Auth;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,8 +31,13 @@
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ml-auto">
-            <a href="#" class="nav-item nav-link">Login</a>
-            <a href="#" class="nav-item nav-link">Register</a>
+            @if (Auth::check())
+            <a href="{{ route('home') }}" class="nav-item nav-link">Home</a>
+            <a href="{{ route('logout') }}" class="nav-item nav-link">Logout</a>
+            @else
+            <a href="{{ route('login') }}" class="nav-item nav-link">Login</a>
+            <a href="{{ route('register') }}" class="nav-item nav-link">Register</a>
+            @endif    
         </div>
     </div>
 </nav>

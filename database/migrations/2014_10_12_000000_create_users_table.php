@@ -18,9 +18,19 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->boolean('isSuperAdmin')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')->insert(
+        [   'name'=>'admin',
+            'email'=>'admin@gmail.com',
+            'password'=>bcrypt('admin123'),
+            'isSuperAdmin' => '1',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
     }
 
     /**

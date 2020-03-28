@@ -8,15 +8,25 @@
 <!-- Bootstrap Boilerplate... -->
 
     <div class="panel-body">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <!-- New Doctor Form -->
         {!! Form::model($doctor, ['route' => ['doctor.update', $doctor->id],'method' => 'put','class' => 'form-horizontal']) !!}
 
         <!-- doctor_no -->
         <div class="form-group row">
-            {!! Form::label('doctor-doctor_no', 'Name', ['class' => 'control-label col-sm-3',]) !!}
-                <div class="col-sm-9">
-                    {!! Form::text('doctor_no', $doctor->doctor_no, ['id' => 'doctor-doctor_no','class' => 'form-control','maxlength' => 10,]) !!}
-                </div>
+            {!! Form::label('doctor-doctor_no', 'Doctor ID', ['class' => 'control-label col-sm-3',]) !!}
+            <div class="col-sm-9">
+                {!! Form::text('doctor_no', $doctor->doctor_no, ['id' => 'doctor-doctor_no','class' => 'form-control','maxlength' => 10,]) !!}
+                <small class="form-text text-muted">Format: DID-XXXXX </small>
+            </div>
         </div>
 
         <!-- Name -->
@@ -32,14 +42,30 @@
             {!! Form::label('doctor-nric', 'Nric No.', ['class' => 'control-label col-sm-3',]) !!}
             <div class="col-sm-9">
                 {!! Form::text('nric', $doctor->nric, ['id' => 'doctor-nric','class' => 'form-control','maxlength' => 14,]) !!}
+                <small id="nricformat" class="form-text text-muted">Format: XXXXXX-XX-XXXX </small>
             </div>
         </div>
+
+        <!-- Gender -->
+        <div class="form-group row">
+            {!! Form::label('doctor-gender', 'Gender', ['class' => 'control-label col-sm-3',]) !!}
+            <div class="col-sm-9">
+                @if ($doctor->gender == '0')
+                    {{ Form::radio('gender', '0', true, ['checked' => 'checked']) }} Male
+                    {{ Form::radio('gender', '1', false, []) }} Female
+                @else
+                    {{ Form::radio('gender', '0', false, []) }} Male
+                    {{ Form::radio('gender', '1', true, ['checked' => 'checked']) }} Female
+                @endif
+            </div>
+        </div> 
 
         <!-- Phone -->
         <div class="form-group row">
             {!! Form::label('doctor-phone', 'Phone', ['class' => 'control-label col-sm-3',]) !!}
             <div class="col-sm-9">
                 {!! Form::text('phone', $doctor->phone, ['id' => 'doctor-phone','class' => 'form-control','maxlength' => 20,]) !!}
+                <small class="form-text text-muted">Format: XXX-XXXXXXX </small> 
             </div>
         </div>
         

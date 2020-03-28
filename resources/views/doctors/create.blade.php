@@ -8,23 +8,33 @@
 <!-- Bootstrap Boilerplate... -->
 
     <div class="panel-body">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <!-- New Doctor Form -->
         {!! Form::model($doctor, [ 'route' => ['doctor.store'], 'class' => 'form-horizontal' ]) !!}
         
         <!-- doctor_no -->
         <div class="form-group row">
-            {!! Form::label('doctor-doctor_no', 'Name', ['class' => 'control-label col-sm-3',]) !!}
-                <div class="col-sm-9">
-                    {!! Form::text('doctor_no', null, ['id' => 'doctor-doctor_no','class' => 'form-control','maxlength' => 10,]) !!}
-                </div>
+            {!! Form::label('doctor-doctor_no', 'Doctor ID', ['class' => 'control-label col-sm-3',]) !!}
+            <div class="col-sm-9">
+                {!! Form::text('doctor_no', null, ['id' => 'doctor-doctor_no','class' => 'form-control','maxlength' => 10,]) !!}
+                <small class="form-text text-muted">Format: DID-XXXXX </small>
+            </div>
         </div>
 
         <!-- Name -->
         <div class="form-group row">
-                {!! Form::label('doctor-name', 'Name', ['class' => 'control-label col-sm-3',]) !!}
-                <div class="col-sm-9">
-                    {!! Form::text('name', null, ['id' => 'doctor-name','class' => 'form-control','maxlength' => 100,]) !!}
-                </div>
+            {!! Form::label('doctor-name', 'Name', ['class' => 'control-label col-sm-3',]) !!}
+            <div class="col-sm-9">
+                {!! Form::text('name', null, ['id' => 'doctor-name','class' => 'form-control','maxlength' => 100,]) !!}
+            </div>
         </div>
 
         <!-- nric -->
@@ -51,10 +61,11 @@
 
         <!-- Phone -->
         <div class="form-group row">
-                    {!! Form::label('doctor-phone', 'Phone', ['class' => 'control-label col-sm-3',]) !!}
-                    <div class="col-sm-9">
-                        {!! Form::text('phone', null, ['id' => 'doctor-phone','class' => 'form-control','maxlength' => 20,]) !!}
-                    </div>
+            {!! Form::label('doctor-phone', 'Phone', ['class' => 'control-label col-sm-3',]) !!}
+            <div class="col-sm-9">
+                {!! Form::text('phone', null, ['id' => 'doctor-phone','class' => 'form-control','maxlength' => 20,]) !!}
+                <small class="form-text text-muted">Format: XXX-XXXXXXX </small> 
+            </div>
         </div>
 
         <!-- Education -->

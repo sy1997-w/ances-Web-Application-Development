@@ -15,7 +15,7 @@ class CreateVisitsTable extends Migration
     {
         Schema::create('visits', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('code',5)->unique();
+            $table->char('code',10)->unique();
             $table->time('time');
             $table->date('date');
             $table->unsignedInteger('doctor_id');

@@ -11,15 +11,25 @@ use App\Visit;
 <!-- Bootstrap Boilerplate... -->
 
     <div class="panel-body">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <!-- New Visit Form -->
         {!! Form::model($visit, [ 'route' => ['visit.store'], 'class' => 'form-horizontal' ]) !!}
 
         <!-- Visit Code -->
         <div class="form-group row">
-                {!! Form::label('visit-code', 'Appointment_code', ['class' => 'control-label col-sm-3',]) !!}
-                <div class="col-sm-9">
-                    {!! Form::text('code', null, ['id' => 'visit-code','class' => 'form-control','maxlength' => 5,]) !!}
-                </div>
+            {!! Form::label('visit-code', 'Appointment ID', ['class' => 'control-label col-sm-3',]) !!}
+            <div class="col-sm-9">
+                {!! Form::text('code', null, ['id' => 'visit-code','class' => 'form-control','maxlength' => 9,]) !!}
+                <small class="form-text text-muted">Format: APT-XXXXX </small>
+            </div>
         </div>
 
         <!-- Visit Date -->
@@ -64,7 +74,7 @@ use App\Visit;
 
         <!-- Statue -->
         <div class="form-group row">
-            {!! Form::label('visit-statue', 'Statue', ['class' => 'control-label col-sm-3',]) !!}
+            {!! Form::label('visit-statue', 'Status', ['class' => 'control-label col-sm-3',]) !!}
         
             <div class="col-sm-9">
                 {!! Form::select('statue',Common::$statues,null, ['class' => 'form-control','placeholder' => '- Select Statue -',]) !!}
