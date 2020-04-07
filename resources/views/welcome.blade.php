@@ -46,10 +46,10 @@
   <div class= "container mt-5">
     <div class="jumbotron">
         <h1 class="display-4"><img src="https://img.icons8.com/bubbles/100/000000/tooth-cracked.png"/>Nice Teeth Dental Clinic</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <p class="lead">We at Nice Teeth Dental Clinic are reputable dental providers in Malaysia. While our smile designers offer a vast array of services at our 3 locations across the Klang Valley, below are a few of our featured services of note.</p>
         <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        <p>If you’ve found yourself wondering, “Where is the best dental clinic for me?”. We are proud to be your solution. We at Nice Teeth Dental Clinic are a reputable dental group in Malaysia that has dental clinics in 3 different locations across the Klang Valley. Nice Teeth Dental Clinic’s friendly and highly skilled dental surgeons are here to ensure that your smile is something to be excited about. Most of our dental clinics are open from morning to night, 7 days a week, best suited for your busy city lifestyle and cater to dental emergencies.</p>
+        <a class="btn btn-primary btn-lg" href="{{ URL::to('learnmore') }}" role="button">About Us</a>
       </div>
   </div>
 
@@ -57,19 +57,19 @@
     <!-- Example row of columns -->
     <div class="row">
       <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+        <h2>Our Treatment</h2>
+        <p>Click to check out what services we provide to you.</p>
+        <p><a class="btn btn-secondary" href="{{ URL::to('ourtreatment') }}" role="button">View details »</a></p>
       </div>
       <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+        <h2>Smile Gallery</h2>
+        <p>Our aim is to help you to find back your smile!</p>
+        <p><a class="btn btn-secondary" href="{{ URL::to('smilegallery') }}" role="button">View details »</a></p>
       </div>
       <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+        <h2>Contact Us</h2>
+        <p>Nice Teeth Dental Clinic are a reputable dental group in Malaysia that has dental clinics in 3 different locations across the Klang Valley. Click View details to look for all locations.</p>
+        <p><a class="btn btn-secondary" href="{{ URL::to('contactus') }}" role="button">View details »</a></p>
       </div>
     </div>
 

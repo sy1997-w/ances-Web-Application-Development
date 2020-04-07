@@ -18,8 +18,8 @@
                         <strong>Welcome!</strong> You are logged in as Super Admin.
                         <p>You are granted permision to:</p>
                         <ul>
-                            <li>Update Patient / Doctor / Appointment.</li>
-                            <li>Delete Patient / Doctor / Appointment.</li>
+                            <li>Update Patient / Doctor / Appointment / Images.</li>
+                            <li>Delete Patient / Doctor / Appointment / Images.</li>
                         </ul>
                     </div>
                     @else
@@ -27,7 +27,7 @@
                         <strong>Welcome!</strong> You are logged in as Admin.
                         <p>You are granted permision to:</p>
                         <ul>
-                            <li>View details of Patient / Doctor / Appointment.</li>
+                            <li>View details of Patient / Doctor / Appointment / Photo Gallery.</li>
                             <li>Create new Patient / Doctor / Appointment.</li>
                         </ul>
                     </div>

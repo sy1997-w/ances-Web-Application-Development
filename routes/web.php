@@ -73,3 +73,22 @@ Route::middleware('auth')->group(function () {
     });
 });
 
+
+//view details
+Route::get('contactus', function(){
+    return View('/details/contactus');
+});
+Route::get('ourtreatment', function(){
+    return View('/details/ourtreatment');
+});
+Route::get('learnmore', function(){
+    return View('/details/learnmore');
+});
+
+
+//photo gallery
+Route::get('smilegallery', 'ImageGalleryController@userindex');
+Route::resource('/imagegallery', 'ImageGalleryController', ['except' => ['destroy',]]);
+//Route::get('imagegallery', 'ImageGalleryController@index');
+//Route::post('smilegallery', 'ImageGalleryController@upload');
+Route::get('imagegallery/delete/{id}', 'ImageGalleryController@destroy');
