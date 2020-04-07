@@ -22,7 +22,6 @@ Route::resources([
     '/visit'=>'VisitController',
 ]);
 
-<<<<<<< HEAD
 
 Route::resource('/doctor', 'DoctorController', ['except' => ['destroy',]]);
 Route::get('doctor/delete/{doctor}',['as' => 'doctor.delete', 'uses' => 'DoctorController@destroy']);
@@ -32,14 +31,14 @@ Route::resource('/patient', 'PatientController', ['except' => ['destroy',]]);
 Route::get('patient/delete/{patient}',['as' => 'patient.delete', 'uses' => 'PatientController@destroy']);
 
 
-=======
+
 Route::resource('/doctor', 'DoctorController', ['except' => ['destroy',]]);
 Route::get('doctor/delete/{doctor}',['as' => 'doctor.delete', 'uses' => 'DoctorController@destroy']);
 
 Route::resource('/patient', 'PatientController', ['except' => ['destroy',]]);
 Route::get('patient/delete/{patient}',['as' => 'patient.delete', 'uses' => 'PatientController@destroy']);
 
->>>>>>> cee4ecbc1fabe7348157b433c71d2f76622f0434
+
 Route::resource('/visit', 'VisitController', ['except' => ['destroy',]]);
 Route::get('visit/delete/{visit}',['as' => 'visit.delete', 'uses' => 'VisitController@destroy']);
 
