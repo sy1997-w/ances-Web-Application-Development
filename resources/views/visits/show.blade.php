@@ -42,7 +42,7 @@ use App\Visit;
                         <td>{!! nl2br($visit->description) !!}</td>
                     </tr>
                     <tr>
-                        <td>Statue</td>
+                        <td>Status</td>
                         <td>{{ Common::$statues[$visit->statue] }}</td>
                     </tr>
                     </tbody>
