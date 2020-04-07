@@ -4,11 +4,9 @@ use App\Common;
 @extends('layouts.app')
 
 @section('content')
-<<<<<<< HEAD
 
-=======
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
->>>>>>> cee4ecbc1fabe7348157b433c71d2f76622f0434
+
 <style type="text/css">
 .gallery
 {
