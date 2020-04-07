@@ -23,13 +23,17 @@ use App\Common;
     <div class="row">
       <div class="col-md-12">
         <h2>Braces</h2>
+        <img src="{{ URL::to('/treatment/invisalign_thumbnail.jpg') }}"/>
         <p>Orthodontic treatments work by moving and straightening teeth, with an end goal of overall improvements in the appearance of a smile. These treatments also assist in the longevity of your teeth and oral health.</p>
         </br></br>
         <h2>Teeth Whitening</h2>
+        <img src="{{ URL::to('/treatment/teeth-whitening.jpg') }}"/>
         <p>The tooth whitening process is incredible. This procedure lightens the shades of tooth enamel to remove discoloration and staining. Tooth whitening is one of the most popular dental procedures, as it provides excellent improvement of the overall quality of the smile with minimal work or time expenditure.</p>
         </br></br>
         <h2>Tooth Implants</h2>
+        <img src="{{ URL::to('/treatment/toothimplant.jpg') }}"/>
         <p>Tooth implants help protect the structure of the jaw and provide support to other teeth, reducing the need for carrying out the procedure on adjacent teeth. In the long run, they make it easier to speak clearly and also help preserve natural facial beauty by reducing wrinkles.</p>
+        <img src="{{ URL::to('/treatment/dental-implant-lifespan.jpg') }}"/>
         </br></br>
       </div>
       

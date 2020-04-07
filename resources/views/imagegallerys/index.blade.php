@@ -4,7 +4,7 @@ use App\Common;
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
 <style type="text/css">
 .gallery
 {
@@ -75,7 +75,7 @@ use App\Common;
                     </a>
                     <form action="{{ url('imagegallery/delete',$image->id) }}" method="delete">
                     {!! csrf_field() !!}
-                    <button type="submit" class="close-icon btn btn-danger"><i class="glyphicon glyphicon-remove"></i></button>
+                    <button type="submit" class="close-icon btn btn-danger">Delete</button>
                     </form>
                 </div> <!-- col-6 / end -->
                 @endforeach
