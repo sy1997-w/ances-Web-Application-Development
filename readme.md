@@ -38,6 +38,7 @@ DB_PASSWORD=
 
 ```
 php artisan migrate
+php artisan db:seed
 ```
 
 6. And run
