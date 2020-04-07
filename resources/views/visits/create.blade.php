@@ -77,7 +77,7 @@ use App\Visit;
             {!! Form::label('visit-statue', 'Status', ['class' => 'control-label col-sm-3',]) !!}
         
             <div class="col-sm-9">
-                {!! Form::select('statue',Common::$statues,null, ['class' => 'form-control','placeholder' => '- Select Statue -',]) !!}
+                {!! Form::select('statue',Common::$statues,null, ['class' => 'form-control','placeholder' => '- Select Status -',]) !!}
             </div>
         </div>  
 

@@ -76,7 +76,7 @@
         <div class="form-group row">
             {!! Form::label('visit-statue', 'Status', ['class' => 'control-label col-sm-3',]) !!}
             <div class="col-sm-9">
-                {!! Form::select('statue', Common::$statues, $visit->statue, ['class' => 'form-control','placeholder' => '- Select Statue -',]) !!}
+                {!! Form::select('statue', Common::$statues, $visit->statue, ['class' => 'form-control','placeholder' => '- Select Status -',]) !!}
             </div>
         </div>
 

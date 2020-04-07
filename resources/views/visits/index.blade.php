@@ -27,7 +27,7 @@ use App\Visit;
                     <th>Code</th>
                     <th>Date</th>
                     <th>Time</th>
-                    <th>Statue</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
