@@ -25,6 +25,13 @@ use App\Common;
 }
 </style>
 
+@if(Session::has('msg'))
+    <div class="alert alert-warning">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{Session::get('msg')}}</strong> Permission not granted.
+    </div>
+@endif
+
 <h3>Upload New Image</h3>
     <form action="{{ url('imagegallery') }}" class="form-image-upload" method="POST" enctype="multipart/form-data">
 

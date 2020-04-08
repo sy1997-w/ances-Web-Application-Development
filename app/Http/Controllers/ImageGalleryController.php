@@ -32,6 +32,7 @@ class ImageGalleryController extends Controller
      */
     public function store(Request $request)
     {
+      if(\Gate::allows('isSuperAdmin')){
     	$this->validate($request, [
     		'title' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -48,6 +49,10 @@ class ImageGalleryController extends Controller
         $images = ImageGallery::get();
     	return view('imagegallerys.index',compact('images'))
     		->with('success','Image Uploaded successfully.');
+      }else{
+  			\Session::flash('msg', 'Unable to upload. ');
+  			return \Redirect::back();
+  		}
     }
 
 
@@ -58,8 +63,13 @@ class ImageGalleryController extends Controller
      */
     public function destroy($id)
     {
+      if(\Gate::allows('isSuperAdmin')){
     	ImageGallery::find($id)->delete();
     	return back()
     		->with('success','Image removed successfully.');
+      }else{
+  			\Session::flash('msg', 'Unable to delete. ');
+  			return \Redirect::back();
+  		}
     }
 }
